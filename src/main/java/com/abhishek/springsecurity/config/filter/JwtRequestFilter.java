@@ -1,4 +1,4 @@
-package com.abhishek.springsecurity.filter;
+package com.abhishek.springsecurity.config.filter;
 
 import com.abhishek.springsecurity.service.impl.JwtUserDetailsService;
 import com.abhishek.springsecurity.util.JwtUtil;
