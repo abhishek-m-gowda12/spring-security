@@ -13,7 +13,7 @@ public interface TaskService {
 
     ServiceResponse<Void> addTask(Task task);
 
-    ServiceResponse<Void> updateTask(int id, Task task);
+    ServiceResponse<Void> updateTask(Task task);
 
     ServiceResponse<Void> deleteTask(int id);
 

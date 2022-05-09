@@ -1,7 +1,6 @@
 package com.abhishek.springsecurity.entity;
 
 import lombok.*;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
@@ -19,8 +18,8 @@ public class UserDetailsEntity {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "username")
-    private String username;
+    @Column(name = "name")
+    private String name;
 
     @Column(name = "password")
     private String password;

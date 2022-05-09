@@ -104,14 +104,14 @@ public class TaskServiceImpl implements TaskService {
         return serviceResponse;
     }
 
-    public ServiceResponse<Void> updateTask(int id, Task task) {
+    public ServiceResponse<Void> updateTask(Task task) {
 
         ServiceResponse<Void> serviceResponse = new ServiceResponse<>();
         User user = userUtil.getLoginUser();
         log.info("operation = updateTask, result = IN_PROGRESS, userId = {}", user.getUserId());
 
         try {
-            List<TaskEntity> taskEntities = taskRepository.findByUserIdAndId(user.getUserId(), id);
+            List<TaskEntity> taskEntities = taskRepository.findByUserIdAndId(user.getUserId(), task.getId());
             TaskEntity task1 = new TaskEntity();
 
             for (TaskEntity taskEntity : taskEntities) {

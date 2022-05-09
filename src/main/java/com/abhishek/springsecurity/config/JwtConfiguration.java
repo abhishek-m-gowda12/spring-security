@@ -1,6 +1,6 @@
 package com.abhishek.springsecurity.config;
 
-import com.abhishek.springsecurity.filter.JwtRequestFilter;
+import com.abhishek.springsecurity.config.filter.JwtRequestFilter;
 import com.abhishek.springsecurity.service.impl.JwtUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -32,7 +32,9 @@ public class JwtConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http.csrf().disable().authorizeRequests().antMatchers("/authenticate")
+        http.csrf().disable()
+                .authorizeRequests()
+                .antMatchers("/authenticate", "/user")
                 .permitAll()
                 .anyRequest().authenticated()
                 .and().sessionManagement()

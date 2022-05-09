@@ -61,14 +61,14 @@ public class TaskController {
     }
 
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Void> updateTask(@PathVariable("id") int id, @RequestBody Task task) {
+    @PutMapping()
+    public ResponseEntity<Void> updateTask(@RequestBody Task task) {
         User user = userUtil.getLoginUser();
-        log.info("api = /task{id}, method = PUT, result = IN_Progress, userId = {}", user.getUserId());
+        log.info("api = /task, method = PUT, result = IN_Progress, userId = {}", user.getUserId());
 
-        ServiceResponse<?> serviceResponse = taskService.updateTask(id, task);
+        ServiceResponse<?> serviceResponse = taskService.updateTask(task);
 
-        log.info("api = /task{id},method = PUT, result = SUCCESS, userId = {}", user.getUserId());
+        log.info("api = /task,method = PUT, result = SUCCESS, userId = {}", user.getUserId());
         return ResponseEntity.status(serviceResponse.getHttpStatus()).build();
     }
 
@@ -111,8 +111,8 @@ public class TaskController {
         log.info("api =  /task/deleteMany, method = DELETE, result = IN_Progress, userId = {}", user.getUserId());
 
         ServiceResponse<?> serviceResponse = taskService.deleteManyTask(ids);
-        log.info("api =  /task/deleteMany,method = DELETE, result = SUCCESS, userId = {}", user.getUserId());
 
+        log.info("api =  /task/deleteMany,method = DELETE, result = SUCCESS, userId = {}", user.getUserId());
         return ResponseEntity.status(serviceResponse.getHttpStatus()).build();
     }
 
